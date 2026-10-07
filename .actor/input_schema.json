@@ -1,0 +1,67 @@
+{
+  "title": "Expose Search",
+  "description": "Look up people, companies, and schools. Each valid row uses one Expose credit. The report is written to the dataset.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "exposeApiKey": {
+      "title": "Expose API key",
+      "type": "string",
+      "description": "From Expose, under Integrations. Stored encrypted. Leave this empty only when the Actor environment variable EXPOSE_API_KEY is set on a private Actor.",
+      "editor": "textfield",
+      "isSecret": true
+    },
+    "searches": {
+      "title": "Searches",
+      "type": "array",
+      "description": "One row is one search. A person needs an email, phone, or profile URL. A company or school needs a domain or a profile URL. When a row has more than one identifier, the Actor uses email, then phone, then profile URL for a person, and domain, then profile URL for a company or school.",
+      "editor": "schemaBased",
+      "prefill": [
+        {
+          "type": "person",
+          "email": "jane@example.com"
+        }
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Search type",
+            "type": "string",
+            "description": "Person, company, or school.",
+            "enum": ["person", "company", "school"],
+            "enumTitles": ["Person", "Company", "School"],
+            "default": "person",
+            "editor": "select"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string",
+            "description": "Person only.",
+            "editor": "textfield"
+          },
+          "phone": {
+            "title": "Phone",
+            "type": "string",
+            "description": "Person only. Include the country code, for example +14155551234.",
+            "editor": "textfield"
+          },
+          "profileUrl": {
+            "title": "Profile URL",
+            "type": "string",
+            "description": "A public profile URL for a person, company, or school.",
+            "editor": "textfield"
+          },
+          "domain": {
+            "title": "Domain",
+            "type": "string",
+            "description": "Company or school only. For example stripe.com or mit.edu.",
+            "editor": "textfield"
+          }
+        },
+        "required": ["type"]
+      }
+    }
+  },
+  "required": ["searches"]
+}

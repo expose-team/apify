@@ -1,0 +1,13 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Expose search results",
+  "description": "One dataset item per search row. The Expose report is on the report field.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Results",
+      "description": "Dataset of Expose reports, one item per search.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}

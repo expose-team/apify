@@ -1,0 +1,18 @@
+{
+  "name": "expose-search",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Search people, companies, and schools on Expose and save each report to the Apify dataset.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "apify": "^3.5.3"
+  },
+  "license": "UNLICENSED"
+}
