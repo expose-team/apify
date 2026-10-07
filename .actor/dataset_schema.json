@@ -1,58 +1,61 @@
 {
   "actorSpecification": 1,
   "fields": {
-    "type": {
-      "type": "string",
-      "title": "Type",
-      "description": "person, company, or school.",
-      "example": "person"
-    },
-    "identifier": {
-      "type": "string",
-      "title": "Identifier",
-      "description": "The email, phone, profile URL, or domain that was searched.",
-      "example": "jane@example.com"
-    },
-    "identifierField": {
-      "type": "string",
-      "title": "Identifier field",
-      "description": "Which query field was sent: email, phone, profile_url, or domain.",
-      "example": "email"
-    },
-    "ok": {
-      "type": "boolean",
-      "title": "Request succeeded",
-      "description": "True when Expose accepted the search.",
-      "example": true
-    },
-    "found": {
-      "type": "boolean",
-      "title": "Report has data",
-      "description": "True when the report object is not empty.",
-      "example": true
-    },
-    "statusCode": {
-      "type": "integer",
-      "title": "HTTP status",
-      "description": "Status code from Expose. 0 means the request did not complete.",
-      "example": 200
-    },
-    "error": {
-      "type": "string",
-      "title": "Error",
-      "description": "Why this row failed. Empty when the request succeeded.",
-      "example": ""
-    },
-    "creditsCharged": {
-      "type": "integer",
-      "title": "Credits charged",
-      "description": "1 when Expose charged a credit for this row, otherwise 0.",
-      "example": 1
-    },
-    "report": {
-      "type": "object",
-      "title": "Report",
-      "description": "The data object returned by GET /api/search."
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": ["string", "null"],
+        "title": "Type",
+        "description": "person, company, or school.",
+        "example": "person"
+      },
+      "identifier": {
+        "type": ["string", "null"],
+        "title": "Identifier",
+        "description": "The email, phone, profile URL, or domain that was searched.",
+        "example": "jane@example.com"
+      },
+      "identifierField": {
+        "type": ["string", "null"],
+        "title": "Identifier field",
+        "description": "Which query field was sent: email, phone, profile_url, or domain.",
+        "example": "email"
+      },
+      "ok": {
+        "type": "boolean",
+        "title": "Request succeeded",
+        "description": "True when Expose accepted the search.",
+        "example": true
+      },
+      "found": {
+        "type": "boolean",
+        "title": "Report has data",
+        "description": "True when the report object is not empty.",
+        "example": true
+      },
+      "statusCode": {
+        "type": "integer",
+        "title": "HTTP status",
+        "description": "Status code from Expose. 0 means the request did not complete.",
+        "example": 200
+      },
+      "error": {
+        "type": ["string", "null"],
+        "title": "Error",
+        "description": "Why this row failed. Null when the request succeeded.",
+        "example": null
+      },
+      "creditsCharged": {
+        "type": "integer",
+        "title": "Credits charged",
+        "description": "1 when Expose charged a credit for this row, otherwise 0.",
+        "example": 1
+      },
+      "report": {
+        "type": ["object", "null"],
+        "title": "Report",
+        "description": "The data object returned by GET /api/search."
+      }
     }
   },
   "views": {

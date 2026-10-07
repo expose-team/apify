@@ -60,7 +60,7 @@ A row that fails validation is stored with `creditsCharged: 0` and the rest of t
 ```javascript
 import { Actor } from 'apify';
 
-const run = await Actor.call('YOUR_USERNAME/expose-search', {
+const run = await Actor.call('expose/expose-search', {
   exposeApiKey: process.env.EXPOSE_API_KEY,
   searches: [{ type: 'person', email: 'jane@example.com' }],
 });
